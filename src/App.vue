@@ -1,82 +1,134 @@
 <template>
-  <div class="global text-center">
-    <b-navbar toggleable="sm" type="dark" variant="dark">
-      <b-navbar-toggle target="nav-text-collapse"></b-navbar-toggle>
-      <b-navbar-brand>Covide-19 Global Data</b-navbar-brand>
-      <b-collapse id="nav-text-collapse" is-nav>
-        <b-navbar-nav>
-          <b-nav-text>........</b-nav-text>
-        </b-navbar-nav>
-      </b-collapse>
-    </b-navbar>
-    <div class="container" v-if="!loading">
-      <div v-if="error">
-        <h2 class="error">Error: {{ error }}</h2>
-      </div>
-      <div v-else>
-        <h1 class="text-center mt-5">Global Data</h1>
-        <div class="row border border-primary" v-if="data.global && data.global.length">
-          <div class="card text-center col-4 border border-danger" v-for="country in data.global" :key="country.Country_Other">
-              <h5 class="card-title mt-2">{{ country.Country_Other }}</h5>
-              <p class="card-text mt-2 bt-3">
-                Total cases: {{country.TotalCases}}
-                <br />
-                TotalRecovered: {{country.TotalRecovered}}
-                <br />
-                NewCases: {{country.NewCases}}
-                <br />
-                TotalDeaths: {{country.TotalDeaths}}
-                <br /><br />
-              </p>
-            </div>
-          </div>
-         </div>
-        <h3 v-else>No data!</h3>
-        <h2 v-else class="mt-10 text-center">
-          Please wait.....
-          <br />Loading data...
-        </h2>
-      </div>
-    </div>
-  </div>
+  <div class="container text-center vh-100">
+    <div class="text-center mt-3">
+      <nav class="navbar navbar-expand-sm navbar-dark bg-dark pl-1 pr-1 mt-1 mb-4">
+        <button
+          class="navbar-toggler btn"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
 
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item mt-1 ml-1 rm-2">
+              <a href="/" class="btn btn-github icon">Home </a>
+            </li>
+            <li class="nav-item mt-1 ml-1 rm-2">
+              <a href="/about" class="btn btn-github icon">About </a>
+            </li>
+            <li class="nav-item mt-1 ml-1 rm-2">
+              <a href="/contact" class="btn btn-github icon">Contact </a>
+            </li>
+          </ul>
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item mt-1 ml-1 rm-2">
+              <a href="/" class="btn btn-github icon">r-link 1 </a>
+            </li>
+            <li class="nav-item mt-1 ml-1 rm-2">
+              <a href="/" class="btn btn-github icon">r-link 2 </a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+    <div class="page">
+      <router-view />
+      <br />
+    </div>
+    <hr />
+    <br /><br />
+    <div class="footer col-sm-12">
+      <div class="text-center">
+        <br /><br />Made with 💜💜💜💜💜💜 by <br /><a href="http://github.com/casjay" target="_blank" rel="noopener" class="text-primary"
+          >Jason M. Hempstead (Casjay)</a
+        >
+      </div>
+      <div class="purple-gradient text-center"><br /><br /></div>
+      <!-- Begin Footer -->
+      <div class="footer-custom" align="center">
+        <br />
+        <!-- Begin Casjays Developments Footer -->
+        Copyright 1999 - 2023
+        <br />
+        <a href="https://casjay.net" target="_blank" rel="noopener noreferrer">Casjays Developments</a>
+        and
+        <a href="https://malaks-us.github.io/jason" target="_blank" rel="noopener noreferrer">Jason M. Hempstead-Malak</a><br />
+        Hosting by
+        <a href="https://casjay.net/hosting" target="_blank" rel="noopener noreferrer">Casjays Developments: Hosting</a><br />
+        and powered by
+        <a href="https://casjaysdev.com" target="_blank" rel="noopener noreferrer">CasjaysDev.com</a>
+        <br />
+        <br />
+        <a href="https://www.patreon.com/casjay" target="_blank" rel="noopener noreferrer"
+          ><img src="https://img.shields.io/badge/patreon-donate-orange.svg" border="0" alt="Casjays Patreon Page"
+        /></a>
+        <a href="https://www.paypal.me/casjaysdev" target="_blank" rel="noopener noreferrer"
+          ><img src="https://img.shields.io/badge/Donate-PayPal-green.svg?casjay@yahoo.com" alt="Casjays Paypal Page"
+        /></a>
+        <br />
+        <br />
+        <a href="https://help.casjay.net" target="_blank" rel="noopener noreferrer">CasjaysDev Support</a>
+        |
+        <a href="https://bugs.casjay.net" target="_blank" rel="noopener noreferrer">CasjaysDev Bugs</a>
+        <br />
+        <a href="https://status.casjay.net" target="_blank" rel="noopener noreferrer">System Status</a>
+        |
+        <a href="https://servers.casjay.net" target="_blank" rel="noopener noreferrer">Service Status</a>
+        |
+        <a href="https://status.casjaysdev.com" target="_blank" rel="noopener noreferrer">Complete Status</a>
+        <br />
+        <a href="https://casjaysdev.com/domains.html" target="_blank" rel="noopener noreferrer">Casjays Developments Domains</a>
+        <br />
+        <br />
+        Casjays Developments privacy policy can be found at<br />
+        <a href="https://casjaysdev.com/policy/" target="_blank" rel="noopener noreferrer">https://casjaysdev.com/policy</a>
+        <br />
+        <!-- End Casjays Developments Footer -->
+        <!-- Begin theme Code -->
+        <div class="text-center" style="color: royalblue">
+          <br />
+          Made with 💜💜💜💜💜💜 by <br />
+          <a href="http://github.com/casjay" target="_blank" rel="noopener"> Jason M. Hempstead (Casjay)</a><br />
+          This site is powered by an
+          <a href="https://github.com/casjay-templates" target="_blank" rel="noopener noreferrer"> open source </a>theme
+        </div>
+        <br />
+        <!-- End Theme powered -->
+      </div>
+      <br />
+      <br />
+      <!-- End Footer -->
+    </div>
+    <br /><br /><br /><br />
+  </div>
 </template>
 
-<script>
-const url = "https://api.casjay.now.sh/api/v1/global";
-
-export default {
-  name: "App",
-  data: () => ({
-    loading: false,
-    data: null,
-    error: ""
-  }),
-  async created() {
-    console.log("Component created...");
-    this.loading = true;
-    try {
-      const response = await fetch(url);
-      const json = await response.json();
-      this.data = json;
-    } catch (error) {
-      this.error = error.message;
-    }
-    this.loading = false;
-  }
-};
-</script>
+<script setup></script>
 
 <style>
-.app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+  #app {
+    font-family: Avenir, Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-align: center;
+  }
 
-.error {
-  color: red;
-}
+  #nav {
+    padding: 30px;
+  }
+
+  #nav a {
+    font-weight: bold;
+    color: #2c3e50;
+  }
+
+  #nav a.router-link-exact-active {
+    color: #42b983;
+  }
 </style>
