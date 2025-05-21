@@ -122,14 +122,14 @@
         >
         <br />
         <a
-          href="https://status.casjay.pro"
+          href="https://servers.casjay.app"
           target="_blank"
           rel="noopener noreferrer"
           >System Status</a
         >
         |
         <a
-          href="https://servers.casjay.pro"
+          href="https://uptime.casjay.app"
           target="_blank"
           rel="noopener noreferrer"
           >Service Status</a
