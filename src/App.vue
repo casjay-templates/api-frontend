@@ -128,19 +128,7 @@
           >System Status</a
         >
         |
-        <a
-          href="https://uptime.casjay.app"
-          target="_blank"
-          rel="noopener noreferrer"
-          >Service Status</a
-        >
-        |
-        <a
-          href="https://status.casjaysdev.pro"
-          target="_blank"
-          rel="noopener noreferrer"
-          >Complete Status</a
-        >
+        <a href="https://uptime.casjay.app" target="_blank">Service Status</a>
         <br />
         <a
           href="https://casjaysdev.pro/domains.html"
